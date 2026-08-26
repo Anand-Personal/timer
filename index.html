@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8b1e2d">
+  <title>IIT Tirupati — Exam Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="IIT Tirupati Exam Timer">
+      <img
+        src="IITT_logo.png"
+        
+        alt="IIT Tirupati"
+        class="brand-logo"
+        onerror="this.style.display='none'; document.querySelector('.brand-fallback').style.display='flex';"
+      >
+      <span class="brand-fallback" aria-hidden="true">
+        <span class="brand-mark">IIT</span>
+        <span class="brand-text">TIRUPATI</span>
+      </span>
+    </a>
+
+    <div class="live-clock" aria-label="Current Standard time">
+      <span class="live-dot"></span>
+      <span id="headerClock">00:00:00</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE 1: SETUP -->
+    <section id="setupPage" class="page page--active setup-page">
+      <div class="setup-shell">
+        <div class="institution-line">
+          <span></span>
+          INDIAN INSTITUTE OF TECHNOLOGY TIRUPATI
+          <span></span>
+        </div>
+
+        <div class="setup-card">
+          <div class="eyebrow">Computer Center - IIT Tirupati</div>
+          <h1>Focus on the paper.<br><em>We'll watch the time.</em></h1>
+          <p class="intro">
+            Configure the examination timer before you begin.
+            Your computer's local time is displayed continuously in the top-right corner.
+          </p>
+
+          <div class="field">
+            <label for="examName">EXAMINATION NAME</label>
+            <input id="examName" type="text" maxlength="100"
+                   placeholder="e.g. B.Tech End Semester Examination">
+          </div>
+
+          <div class="field">
+            <label>TIMER MODE</label>
+
+            <div class="mode-grid">
+              <label class="mode-card">
+                <input type="radio" name="timerMode" value="countdown" checked>
+                <span class="mode-card__body">
+                  <span class="mode-icon">⌛</span>
+                  <span>
+                    <strong>Countdown Timer</strong>
+                    <small>Set the examination duration manually.</small>
+                  </span>
+                  <span class="radio-dot"></span>
+                </span>
+              </label>
+
+              <label class="mode-card">
+                <input type="radio" name="timerMode" value="current">
+                <span class="mode-card__body">
+                  <span class="mode-icon">◷</span>
+                  <span>
+                    <strong>Current Time</strong>
+                    <small>Display the computer's current time.</small>
+                  </span>
+                  <span class="radio-dot"></span>
+                </span>
+              </label>
+            </div>
+
+            <div id="durationPanel" class="duration-panel">
+              <div class="duration-grid">
+                <div>
+                  <label class="sub-label" for="hours">HOURS</label>
+                  <input id="hours" type="number" min="0" max="99" value="3">
+                </div>
+                <div>
+                  <label class="sub-label" for="minutes">MINUTES</label>
+                  <input id="minutes" type="number" min="0" max="59" value="0">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button id="startButton" class="primary-button">
+            START EXAM TIMER
+            <span>→</span>
+          </button>
+
+          <div class="security-note">
+            <span>●</span> Runs locally in this browser — no internet connection required after loading.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: TIMER -->
+    <section id="timerPage" class="page timer-page">
+      <div class="timer-content">
+        <div class="timer-kicker">CURRENT EXAMINATION</div>
+        <h2 id="displayExamName">Examination</h2>
+
+        <div class="timer-orb" aria-live="polite">
+          <div class="timer-orb__glow"></div>
+          <div class="timer-orb__ring timer-orb__ring--outer"></div>
+          <div class="timer-orb__ring timer-orb__ring--inner"></div>
+
+          <div class="timer-orb__center">
+            <div id="timerValue" class="timer-value">03:00:00</div>
+            <div id="timerStatus" class="timer-status">TIMER RUNNING</div>
+          </div>
+        </div>
+
+        <div class="timer-controls">
+          <button id="pauseButton" class="control-button control-button--primary">
+            <span id="pauseIcon">Ⅱ</span>
+            <span id="pauseText">Pause Timer</span>
+          </button>
+          <button id="backButton" class="control-button control-button--ghost">
+            ← Back to Setup
+          </button>
+        </div>
+
+        <div class="timer-footer">
+          <span>IIT TIRUPATI - CC LAB Administrator</span>
+          <span class="footer-separator"></span>
+          <span id="footerDate">--</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
