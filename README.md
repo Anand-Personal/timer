@@ -18,7 +18,6 @@ No build process or server is required.
 
 The header references the official IIT Tirupati logo hosted by the institute:
 
-https://www.iittp.ac.in/CentralLibrary/images/logo/iittlogo.png
 
 If you want the site to work completely offline, download the official logo into `assets/iitt-logo.png` and change the `<img src>` in `index.html` to:
 
