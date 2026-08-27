@@ -149,7 +149,7 @@ function startTimer() {
 
   updateCountdownDisplay();
   updatePauseButton();
-  timerStatus.textContent = "TIMER RUNNING";
+  timerStatus.textContent = "TIMER RUNNING..";
 
   timerInterval = setInterval(countdownTick, 1000);
 }
@@ -222,7 +222,7 @@ function togglePause() {
   paused = !paused;
   updatePauseButton();
 
-  timerStatus.textContent = paused ? "TIMER PAUSED" : "TIMER RUNNING";
+  timerStatus.textContent = paused ? "TIMER PAUSED" : "TIMER RUNNING..";
 }
 
 function updatePauseButton() {
