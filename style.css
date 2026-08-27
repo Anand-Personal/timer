@@ -179,7 +179,14 @@ body::before {
   border-radius: 50%;
 }
 
-.eyebrow, .timer-kicker {
+.eyebrow {
+  color: var(--iit-red);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+}
+.timer-kicker {
   color: var(--iit-red);
   font-size: 30px;
   font-weight: 900;
@@ -511,7 +518,7 @@ input:focus {
   gap: 11px;
   margin-top: 35px;
   color: #8a7f81;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 900;
   letter-spacing: 1.8px;
 }
