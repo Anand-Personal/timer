@@ -125,7 +125,7 @@ function startTimer() {
 
   if (mode === "current") {
     pauseButton.hidden = true;
-    timerStatus.textContent = "CURRENT COMPUTER TIME";
+    timerStatus.textContent = "IST";
     updateCurrentTime();
     timerInterval = setInterval(updateCurrentTime, 1000);
     return;
