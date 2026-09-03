@@ -269,10 +269,42 @@ window.addEventListener("beforeunload", () => {
 
 // If the browser releases fullscreen (for example after Esc), the timer
 // continues running and the Wake Lock remains active where supported.
-// Fullscreen cannot be forcibly restored without a fresh user gesture
-// because browsers intentionally restrict automatic fullscreen changes.
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    fullscreenRequested = false;
+
+// =====================================
+// F KEY = FULLSCREEN
+// =====================================
+
+document.addEventListener("keydown", async (event) => {
+
+  // Ignore F if the user is typing in an input box
+  const active = document.activeElement;
+
+  if (
+    active &&
+    (active.tagName === "INPUT" ||
+     active.tagName === "TEXTAREA")
+  ) {
+    return;
+  }
+
+  // F or f
+  if (event.key.toLowerCase() === "f") {
+
+    event.preventDefault();
+
+    // Only enable fullscreen while the timer page is active
+    if (timerPage.classList.contains("page--active")) {
+
+      if (!document.fullscreenElement) {
+
+        try {
+          await document.documentElement.requestFullscreen();
+          fullscreenRequested = true;
+        } catch (error) {
+          console.log("Fullscreen request failed:", error);
+        }
+
+      }
+    }
   }
 });
